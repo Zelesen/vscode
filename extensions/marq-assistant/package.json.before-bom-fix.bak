@@ -1,0 +1,63 @@
+﻿{
+  "name": "marq-assistant",
+  "displayName": "MarQ Assistant",
+  "description": "A local AI coding assistant powered by Ollama.",
+  "version": "0.1.0",
+  "publisher": "marq",
+  "license": "MIT",
+  "engines": {
+    "vscode": "^1.140.0"
+  },
+  "categories": ["Other"],
+  "main": "./out/extension.js",
+  "activationEvents": ["onView:marq-assistant.chat"],
+  "contributes": {
+    "viewsContainers": {
+      "activitybar": [
+        {
+          "id": "marq-assistant",
+          "title": "MarQ",
+          "icon": "media/marq.svg"
+        }
+      ]
+    },
+    "views": {
+      "marq-assistant": [
+        {
+          "id": "marq-assistant.chat",
+          "name": "Assistant"
+        }
+      ]
+    },
+    "commands": [
+      {
+        "command": "marq-assistant.newChat",
+        "title": "MarQ: New Chat"
+      }
+    ],
+    "menus": {
+      "view/title": [
+        {
+          "command": "marq-assistant.newChat",
+          "when": "view == marq-assistant.chat",
+          "group": "navigation"
+        }
+      ]
+    },
+    "configuration": {
+      "title": "MarQ Assistant",
+      "properties": {
+        "marq-assistant.ollamaUrl": {
+          "type": "string",
+          "default": "http://localhost:11434",
+          "description": "Base URL for the local Ollama server."
+        },
+        "marq-assistant.model": {
+          "type": "string",
+          "default": "qwen2.5:7b",
+          "description": "Ollama model used by MarQ Assistant."
+        }
+      }
+    }
+  }
+}

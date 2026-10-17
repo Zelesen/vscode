@@ -1,0 +1,17 @@
+﻿{
+  "compilerOptions": {
+    "module": "commonjs",
+    "target": "ES2022",
+    "lib": ["ES2022", "DOM"],
+    "outDir": "out",
+    "rootDir": "src",
+    "strict": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "vscode": ["../../src/vscode-dts/vscode.d.ts"]
+    }
+  },
+  "include": ["src/**/*.ts"]
+}
